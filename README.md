@@ -1,4 +1,3 @@
-
 function Animation(Character)
     Character:WaitForChild'Animate'
     game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
@@ -20,53 +19,6 @@ function Animation(Character)
 end
 Animation(game.Players.LocalPlayer.Character)
 game.Players.LocalPlayer.CharacterAdded:Connect(Animation)
-
-
---
--- Animation Pack --
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 repeat
     wait()
@@ -136,85 +88,77 @@ function AnimationPack(Character)
         wait()
     until game.Players.LocalPlayer.Character:FindFirstChild("FULLY_LOADED_CHAR") and game.Players.LocalPlayer.PlayerGui.MainScreenGui:FindFirstChild("AnimationPack")
 
-    local AnimationPack = game:GetService("Players").LocalPlayer.PlayerGui.MainScreenGui.AnimationPack
-    local ScrollingFrame = AnimationPack.ScrollingFrame
-    local CloseButton = AnimationPack.CloseButton
+   local AnimationPack = game:GetService("Players").LocalPlayer.PlayerGui.MainScreenGui.AnimationPack
+   local ScrollingFrame = AnimationPack.ScrollingFrame
+   local CloseButton = AnimationPack.CloseButton
 
-    local Lean = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(LeanAnimation)
+   local Lean = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(LeanAnimation)
 
-    local Lay = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(LayAnimation)
+   local Lay = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(LayAnimation)
 
-    local Dance1 = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Dance1Animation)
+ local Dance1 = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Dance1Animation)
 
-    local Dance2 = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Dance2Animation)
+ local Dance2 = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Dance2Animation)
 
-    local Greet = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(GreetAnimation)
+ local Greet = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(GreetAnimation)
 
-    local ChestPump = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(ChestPumpAnimation)
+ local ChestPump = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(ChestPumpAnimation)
 
-    local Praying = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(PrayingAnimation)
+ local Praying = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(PrayingAnimation)
 
-    AnimationPack.Visible = true
+ AnimationPack.Visible = true
+ AnimationPack.ScrollingFrame.UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 
-    AnimationPack.ScrollingFrame.UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-
-    for i,v in pairs(ScrollingFrame:GetChildren()) do
+for i,v in pairs(ScrollingFrame:GetChildren()) do
         if v.Name == "TextButton" then
             if v.Text == "Lean" then
                 v.Name = "LeanButton"
             end
         end
     end
-
-    for i,v in pairs(ScrollingFrame:GetChildren()) do
+for i,v in pairs(ScrollingFrame:GetChildren()) do
         if v.Name == "TextButton" then
             if v.Text == "Lay" then
                 v.Name = "LayButton"
             end
         end
     end
-
-    for i,v in pairs(ScrollingFrame:GetChildren()) do
+for i,v in pairs(ScrollingFrame:GetChildren()) do
         if v.Name == "TextButton" then
             if v.Text == "Dance1" then
                 v.Name = "Dance1Button"
             end
         end
     end
-
-    for i,v in pairs(ScrollingFrame:GetChildren()) do
+for i,v in pairs(ScrollingFrame:GetChildren()) do
         if v.Name == "TextButton" then
             if v.Text == "Dance2" then
                 v.Name = "Dance2Button"
             end
         end
     end
-
-    for i,v in pairs(ScrollingFrame:GetChildren()) do
+for i,v in pairs(ScrollingFrame:GetChildren()) do
         if v.Name == "TextButton" then
             if v.Text == "Greet" then
                 v.Name = "GreetButton"
             end
         end
     end
-
-    for i,v in pairs(ScrollingFrame:GetChildren()) do
+for i,v in pairs(ScrollingFrame:GetChildren()) do
         if v.Name == "TextButton" then
             if v.Text == "Chest Pump" then
                 v.Name = "ChestPumpButton"
             end
         end
     end
-
-    for i,v in pairs(ScrollingFrame:GetChildren()) do
+for i,v in pairs(ScrollingFrame:GetChildren()) do
         if v.Name == "TextButton" then
             if v.Text == "Praying" then
                 v.Name = "PrayingButton"
             end
         end
     end
-
-    function Stop()
+function Stop()
         Lean:Stop()
         Lay:Stop()
         Dance1:Stop()
@@ -224,15 +168,14 @@ function AnimationPack(Character)
         Praying:Stop()
     end
 
-    local LeanTextButton = ScrollingFrame.LeanButton
-    local LayTextButton = ScrollingFrame.LayButton
-    local Dance1TextButton = ScrollingFrame.Dance1Button
-    local Dance2TextButton = ScrollingFrame.Dance2Button
-    local GreetTextButton = ScrollingFrame.GreetButton
-    local ChestPumpTextButton = ScrollingFrame.ChestPumpButton
-    local PrayingTextButton = ScrollingFrame.PrayingButton
-
-    AnimationPack.MouseButton1Click:Connect(function()
+local LeanTextButton = ScrollingFrame.LeanButton
+local LayTextButton = ScrollingFrame.LayButton
+local Dance1TextButton = ScrollingFrame.Dance1Button
+local Dance2TextButton = ScrollingFrame.Dance2Button
+local GreetTextButton = ScrollingFrame.GreetButton
+local ChestPumpTextButton = ScrollingFrame.ChestPumpButton
+local PrayingTextButton = ScrollingFrame.PrayingButton
+AnimationPack.MouseButton1Click:Connect(function()
         if ScrollingFrame.Visible == false then
             ScrollingFrame.Visible = true
             CloseButton.Visible = true
@@ -273,16 +216,18 @@ function AnimationPack(Character)
         Praying:Play()
     end)
 
-    game:GetService("Players").LocalPlayer.Character.Humanoid.Running:Connect(function()
+ game:GetService("Players").LocalPlayer.Character.Humanoid.Running:Connect(function()
         Stop()
     end)
 
-    game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function()
+  game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function()
         Stop()
     end)
 end
 AnimationPack(game.Players.LocalPlayer.Character)
 game.Players.LocalPlayer.CharacterAdded:Connect(AnimationPack)
+
+
 local ply = game.Players.LocalPlayer
 	local chr = ply.Character
 	chr.RightLowerLeg.MeshId = "902942093"
@@ -291,10 +236,10 @@ local ply = game.Players.LocalPlayer
 	chr.RightUpperLeg.TextureID = "http://roblox.com/asset/?id=902843398"
 	chr.RightFoot.MeshId = "902942089"
 	chr.RightFoot.Transparency = "1"
-	game.Players.LocalPlayer.Character.Head.Transparency = 1
+        game.Players.LocalPlayer.Character.Head.Transparency = 1
 	game.Players.LocalPlayer.Character.Head.Transparency = 1
 	for i,v in pairs(game.Players.LocalPlayer.Character.Head:GetChildren()) do
 		if (v:IsA("Decal")) then
 			v.Transparency = 1
 		end
-		end
+	end
